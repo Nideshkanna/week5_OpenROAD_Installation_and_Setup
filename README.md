@@ -208,3 +208,11 @@ This week, we:
 * [spatha0011 / VSD Hardware Design Program (Day 14)](https://github.com/spatha0011/spatha_vsd-hdp/blob/main/Day14/README.md)
 
 ---
+
+🏁 End of Week 5
+
+This marks the completion of Week 5, where you successfully installed the OpenROAD Flow Scripts environment and executed the **Floorplan and Placement** stages of the RISC-V SoC design. You now have a clear understanding of how standard cells are arranged and constrained to optimize timing and area on silicon.
+
+Next, in 👉 **Week 6 – Clock Tree Synthesis and Routing**, you’ll take the floorplanned design from this week and implement **clock distribution and routing**. This stage will help you understand how interconnects, clock skew, and routing congestion affect performance, moving closer to a fully routed and sign-off-ready design. 🕒✨
+
+---
