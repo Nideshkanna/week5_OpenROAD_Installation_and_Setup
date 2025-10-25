@@ -39,6 +39,8 @@ cd OpenROAD-flow-scripts/
 
 ![01](./images/01.png)
 
+![01a](./images/01a.png)
+
 ---
 
 ### 2️⃣ Run the Setup Script
@@ -50,6 +52,8 @@ sudo ./setup.sh
 This installs all necessary dependencies and prepares the environment for compilation.
 
 ![02](./images/02.png)
+
+![02a](./images/02a.png)
 
 ---
 
@@ -76,6 +80,7 @@ openroad -help
 Check that both `yosys` and `openroad` respond successfully — this confirms a valid installation.
 
 ![04](./images/04.png)
+
 ![05](./images/05.png)
 
 ---
@@ -90,6 +95,8 @@ make
 This runs the flow using built-in example designs (such as `gcd` with the Nangate45 PDK).
 
 ![06](./images/06.png)
+
+![06a](./images/06a.png)
 
 ---
 
@@ -116,16 +123,49 @@ This opens the **OpenROAD GUI** showing the final placement and floorplan visual
 
 ```plaintext
 OpenROAD-flow-scripts/
-├── docker/          → Docker-based flow setup
-├── docs/            → Documentation and usage notes
-├── flow/            → RTL-to-GDSII flow scripts and configs
-│   ├── designs/     → Example designs (like gcd, aes, etc.)
-│   ├── platforms/   → PDKs and technology files (e.g., Nangate45)
-│   ├── scripts/     → Flow automation and environment setup
-│   └── makefile     → Controls the step-by-step physical flow
-├── tools/           → Installed EDA tool binaries
-├── etc/             → Dependency management scripts
-└── setup_env.sh     → Environment configuration script
+├── bazel/                     → Bazel build configuration files
+├── build_openroad.sh           → Script to locally build the OpenROAD toolchain
+├── build_openroad.log          → Build log file for OpenROAD compilation
+├── dependencies/               → Installed libraries and dependencies (CUSP, headers, libs, etc.)
+│   ├── bin/                    → Dependency executables
+│   ├── include/                → Header files for dependencies
+│   ├── lib/                    → Shared/static libraries
+│   ├── share/                  → Shared dependency resources
+│   └── README.md               → Notes about dependency setup
+├── dev_env.sh                  → Developer environment setup script
+├── docker/                     → Docker build definitions (builder & dev images)
+│   ├── Dockerfile.builder
+│   └── Dockerfile.dev
+├── docs/                       → Documentation, Sphinx configs, and tutorials
+│   ├── images/                 → Reference images for documentation
+│   ├── tutorials/              → User and contributor tutorials
+│   ├── conf.py                 → Sphinx documentation configuration
+│   └── README.md               → Docs overview
+├── etc/                        → Helper shell scripts for dependencies and Docker
+│   ├── DependencyInstaller.sh
+│   ├── DockerHelper.sh
+│   └── DockerTag.sh
+├── flow/                       → Core RTL-to-GDSII flow environment
+│   ├── designs/                → Example RTL designs (e.g., gcd)
+│   ├── platforms/              → Technology libraries and PDK files (e.g., Nangate45)
+│   ├── scripts/                → Flow automation Tcl scripts
+│   ├── reports/                → Generated timing/area reports
+│   ├── results/                → Flow outputs (ODB, DEF, GDS, logs, etc.)
+│   ├── logs/                   → Stepwise tool logs (synthesis, placement, etc.)
+│   ├── Makefile                → Defines and controls the end-to-end flow
+│   └── tutorials/              → Example runs for new users
+├── jenkins/                    → Regression and CI test configurations
+├── tools/                      → Installed EDA tools and utilities
+│   ├── OpenROAD/               → Compiled OpenROAD binaries
+│   ├── yosys/                  → Logic synthesis tool binaries
+│   ├── yosys-slang/            → Verilog frontend for Yosys
+│   ├── yosys_util/             → Helper scripts for Yosys
+│   ├── codespace/              → Developer support scripts
+│   └── AutoTuner/              → Optimization modules
+├── env.sh                      → Environment setup script (source before running flow)
+├── LICENSE_BUILD_RUN_SCRIPTS   → License file for the build/run scripts
+├── README.md                   → Main repository overview
+└── WORKSPACE.bazel             → Bazel workspace descriptor
 ```
 
 ![09](./images/09.png)
